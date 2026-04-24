@@ -275,3 +275,5 @@ btn("เบิกสินค้า", DANGER, open_remove).pack(pady=5)
 btn("ดู Stock", "#9b59b6", open_table).pack(pady=5)
 
 root.mainloop()
+
+#ควย
