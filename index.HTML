@@ -1,11 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>Logistics Dashboard</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    display: flex;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 240px;
+    background: #020617;
+    height: 100vh;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    color: #94a3b8;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.menu a:hover {
+    background: #1e293b;
+    color: white;
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.card h1 {
+    font-size: 28px;
+}
+
+/* GRID SECTION */
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.box {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+tr {
+    border-top: 1px solid #334155;
+}
+
+/* STATUS */
+.status {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.completed { background: #16a34a; }
+.processing { background: #2563eb; }
+.delayed { background: #dc2626; }
+
+</style>
 </head>
 <body>
-    
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>LogisticsPro</h2>
+    <div class="menu">
+        <a href="#">Dashboard</a>
+        <a href="#">Inventory</a>
+        <a href="#">Analytics</a>
+        <a href="#">Orders</a>
+        <a href="#">Settings</a>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h2>Overview</h2>
+        <input type="text" placeholder="Search..." style="padding:8px;border-radius:6px;border:none;">
+    </div>
+
+    <!-- CARDS -->
+    <div class="cards">
+        <div class="card">
+            <h3>Total Items</h3>
+            <h1>--</h1>
+        </div>
+        <div class="card">
+            <h3>Low Stock</h3>
+            <h1>--</h1>
+        </div>
+        <div class="card">
+            <h3>Pending Orders</h3>
+            <h1>--</h1>
+        </div>
+        <div class="card">
+            <h3>Capacity</h3>
+            <h1>--</h1>
+        </div>
+    </div>
+
+    <!-- CHART + LOG -->
+    <div class="grid">
+        <div class="box">
+            <h3>Monthly Stock Movement</h3>
+            <div style="height:200px;display:flex;align-items:end;gap:10px;margin-top:20px;">
+                <div style="background:#475569;height:80px;width:30px;"></div>
+                <div style="background:#475569;height:120px;width:30px;"></div>
+                <div style="background:#475569;height:100px;width:30px;"></div>
+                <div style="background:#475569;height:90px;width:30px;"></div>
+                <div style="background:#475569;height:130px;width:30px;"></div>
+                <div style="background:#475569;height:110px;width:30px;"></div>
+                <div style="background:#94a3b8;height:150px;width:30px;"></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Live Logs</h3>
+            <p style="margin-top:10px;">--</p>
+            <p>--</p>
+            <p>--</p>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="box" style="margin-top:20px;">
+        <h3>Recent Stock Movements</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tracking ID</th>
+                    <th>Item</th>
+                    <th>Movement</th>
+                    <th>Qty</th>
+                    <th>Status</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#----</td>
+                    <td>---</td>
+                    <td>Inbound</td>
+                    <td>--</td>
+                    <td><span class="status completed">Completed</span></td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>#----</td>
+                    <td>---</td>
+                    <td>Outbound</td>
+                    <td>--</td>
+                    <td><span class="status processing">Processing</span></td>
+                    <td>--</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
 </body>
 </html>
